@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import {InputBox} from './components'
 import useCurrencyInfo from './hooks/useCurrencyInfo'
+import react from'./assets/react.png';
 
+// import DarkMode from './components/Darkmode';
 
 function App() {
   // const [amount, setAmount] = useState(0)
@@ -33,6 +35,11 @@ function App() {
   //   </div>
   // )
 
+  const [showImage, setShowImage] = useState(false);
+  const toggleImage = () => {
+    setShowImage(!showImage); // Toggle the visibility of the image
+  };
+
   const [amount, setAmount] = useState(0)
   const [from, setFrom] = useState("usd")
   const [to, setTo] = useState("inr")
@@ -55,6 +62,12 @@ function App() {
 
 
   return (
+    
+
+
+
+
+    //---------------------------------------------------------------------------
     <div
         className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"
         style={{
@@ -109,6 +122,13 @@ function App() {
                 </form>
             </div>
         </div>
+
+        <div className=' gap-5'>
+          <button onClick={toggleImage} className='bg-blue-600 hover:bg-blue-700 text-white  py-2 px-4 rounded'>Thankyou</button>
+
+          {showImage && <img className=' m-3 w-96 h-auto' src={react} alt="React" />}
+        </div>
+         
     </div>
 );
 }
